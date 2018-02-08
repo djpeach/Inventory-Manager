@@ -16,31 +16,31 @@ To double check that the database is restored cleanly for you, make sure to clic
 
 Now you can click the Home link, which will take you to the main screen of the project.
 
-![](./imgs/Home screen.png)
+![](./imgs/Home_screen.png)
 
 Here you can navigate to:
 
 ### Sales
 > Where you will be able to view, add, and update customers and orders
 
-![](./imgs/Customer profile.png)
+![](./imgs/Customer_profile.png)
 
 ### Dashboard
-> Where you will be able to view the current status of the company's assets and orders.
+> Where you will be able to view the current status of the company's assets and orders
 
 ![](./imgs/Dashboard.png)
 
 ### Warehouse
 > Where you will be able to add, update, remove, ship, and return tickets, tubs, and bottles. (tubs and bottles were chose as that is the items my employer ships out the most)
 
+![](./imgs/Warehouse_options.png)
+
 *If you have any questions, please feel free to contact me at dpeachesdev@gmail.com*
 
 ### More Photos
 
-![](./imgs/Ticket - top.png)
+![](./imgs/Ticket_top.png)
 
-![](./imgs/Ticket - bottom.png)
+![](./imgs/Ticket_bottom.png)
 
-![](./imgs/Order add.png)
-
-![](./imgs/Warehouse options.png)
+![](./imgs/Order_add.png)
