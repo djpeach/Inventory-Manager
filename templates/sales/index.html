@@ -1,0 +1,16 @@
+{%  extends 'sales/base.html' %}
+{% block body %}
+  <div class="container-fluid mt-5 text-center">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card bg-light">
+        <div class="card-body">
+          <p><a href="{% url 'sales:pre_add_order' %}" class="btn btn-outline-warning my-4">ADD ORDER</a></p>
+{#          <p> no function <br><a href="" class="btn btn-outline-primary my-4">EDIT ORDER</a></p>#}
+          <p><a href="{% url 'sales:customers' %}" class="btn btn-outline-danger my-4">CUSTOMERS</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

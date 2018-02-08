@@ -1,0 +1,33 @@
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:index' %}{% endblock %}
+{% block body %}
+<div class="container-fluid">
+{% for customer in object_list %}
+  <a href="{% url 'sales:customer_details' customer.pk %}">
+    <div class="row my-2">
+      <div class="col">
+        <div class="card p-2">
+          <div class="row">
+            <div class="col text-left">
+              <p class="h4">{{ customer.company }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-left">
+              <p class="h6">Customer id: {{ customer.customer_id }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+{% endfor %}
+<div class="row my-5">
+  <div class="col">
+    <div>
+      <a href="{% url 'sales:new_customer' %}" class="btn btn-outline-success btn-lg">New Customer</a>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

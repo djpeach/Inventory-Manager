@@ -1,0 +1,91 @@
+{% extends 'dashboard/base.html' %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 p-5">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Tubs</h3>
+          </div>
+          <div class="card-body">
+            <div class="row mx-3">
+              <div class="col-6">
+                <p class="h6">Tubs In</p>
+                {{ shop_tubs }}
+              </div>
+              <div class="col-6 text-right">
+                <p class="h6">Tubs Out</p>
+                {{ out_tubs }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="progress" style="height: 40px;">
+                  <a href="" class="progress-bar bg-info" style="width:{{ shop_tubs_percent }}%;"></a>
+                  <a href="" class="progress-bar bg-dark" style="width:{{ out_tubs_percent }}%;"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 p-5">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Bottles</h3>
+          </div>
+          <div class="card-body">
+            <div class="row mx-3">
+              <div class="col-6">
+                <p class="h6">Bottles In</p>
+                {{ shop_bottles }}
+              </div>
+              <div class="col-6 text-right">
+                <p class="h6">Bottles Out</p>
+                {{ out_bottles }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="progress" style="height: 40px;">
+                  <a href="" class="progress-bar bg-info" style="width:{{ shop_bottles_percent }}%;"></a>
+                  <a href="" class="progress-bar bg-dark" style="width:{{ out_bottles_percent }}%;"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6 p-5">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Orders</h3>
+          </div>
+          <div class="card-body">
+            <div class="row mx-3">
+              <div class="col-6">
+                <p class="h6">Orders In</p>
+                {{ shop_orders }}
+              </div>
+              <div class="col-6 text-right">
+                <p class="h6">Orders Out</p>
+                {{ out_orders }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="progress" style="height: 40px;">
+                  <a href="" class="progress-bar bg-info" style="width:{{ shop_orders_percent }}%;"></a>
+                  <a href="" class="progress-bar bg-dark" style="width:{{ out_orders_percent }}%;"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- File for creating and updating tubs in warehouse -->
+{% extends 'warehouse/base.html' %}
+{% block back_link %}{% url 'warehouse:pre_tubs_remove' %}{% endblock %}
+{% block body %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card col-sm-5 mt-5 mx-auto bg-light">
+        <div class="card-body text-center">
+          <h3>Removing Tubs</h3>
+          <form action="" method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <div class="form-group">
+              <button class="btn btn-success mx-auto">Confirm</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

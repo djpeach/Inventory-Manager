@@ -1,0 +1,57 @@
+{% extends 'warehouse/base.html' %}
+{% block back_link %}{% url 'warehouse:orders' %}{% endblock %}
+{% block extra_js%}<script src="http://malsup.github.com/jquery.form.js"></script>{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-6">
+      <h2 class="text-center">Queued Items</h2>
+      <hr>
+      <h6>Bottles:</h6>
+      {% for bottle in queued_bottles %}
+        <p>{{ bottle.fill }}-{{ bottle.size }}</p>
+      {% endfor %}
+      <h6>Tubs:</h6>
+      {% for tub in queued_tubs %}
+          <p>{{ tub.fill }}</p>
+      {% endfor %}
+    </div>
+    <div class="col-6">
+      <h2 class="text-center">Added Items</h2>
+      <hr>
+      <h6>Bottles:</h6>
+      {% for bottle in added_bottles %}
+        <p>{{ bottle.fill }}-{{ bottle.size }} {{ bottle.barcode }}</p>
+      {% endfor %}
+      <h6>Tubs:</h6>
+      {% for tub in added_tubs %}
+        <p>{{ tub.fill }} {{ tub.barcode }}</p>
+      {% endfor %}
+      <a id="tubmodalopen" data-toggle='modal' data-target='#addtubmodal' href="{% url 'warehouse:add_order_tub' order_num%}" class="btn btn-sm btn-warning">Add Tub to Order</a>
+      <a id="bottlemodalopen" data-toggle='modal' data-target='#addbottlemodal' href="{% url 'warehouse:add_order_bottle' order_num%}" class="btn btn-sm btn-info">Add Bottle to Order</a>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col text-center">
+      <form action="{% url 'warehouse:order_ship' order.pk %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <button type='submit' class="btn btn-primary">Submit Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal" id="addtubmodal"></div>
+<div class="modal" id="addbottlemodal"></div>
+<script>
+  $(document).ready(function(){
+      $('#tubmodalopen').click(function () {
+          $('#addtubmodal').load("{% url 'warehouse:add_order_tub' order_num %}");
+      });
+      $('#bottlemodalopen').click(function () {
+          $('#addbottlemodal').load("{% url 'warehouse:add_order_bottle' order_num %}");
+      });
+  });
+</script>
+{% endblock %}

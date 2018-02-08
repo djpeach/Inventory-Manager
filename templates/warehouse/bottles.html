@@ -1,0 +1,20 @@
+{% extends 'warehouse/base.html' %}
+{% block back_link %}{% url 'warehouse:index' %}{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid mt-5 text-center">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card bg-light">
+        <div class="card-body">
+          <p><a href="{% url 'warehouse:bottles_add' %}" class="btn btn-outline-primary my-4">ADD BOTTLE</a></p>
+          <p><a href="{% url 'warehouse:pre_bottles_update' %}" class="btn btn-outline-primary my-4">UPDATE BOTTLE</a></p>
+          <p><a href="{% url 'warehouse:pre_bottles_remove' %}" class="btn btn-outline-primary my-4">REMOVE BOTTLE</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

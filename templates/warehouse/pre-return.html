@@ -1,0 +1,27 @@
+{% extends 'warehouse/base.html' %}
+{% block back_link %}{% url 'warehouse:orders' %}{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-7">
+      <div class="card">
+        <div class="card-header"><h4>Enter Item Barcode:</h4></div>
+        <div class="card-body">
+        <form action="{% url 'warehouse:pre_return_order' %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="form-group">
+                  <div class="form-row">
+                    <label class="col-sm-3 offset-sm-1 text-right">{{ field.label_tag }}</label>
+                    <div class="col-sm-5">{{ field }}</div>
+                  </div>
+                </div>
+          {% endfor %}
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

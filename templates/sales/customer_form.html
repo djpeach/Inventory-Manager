@@ -1,0 +1,31 @@
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:customers' %}{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-6">
+      <div class="card text-center">
+        <div class="card-header bg-secondary text-white">{{ manip_type }} Customer</div>
+        <div class="card-body">
+          <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-row">
+                <div class="form-group offset-md-2 col-md-8">
+                    <div class="row">
+                        <label class="col-sm-2">{{ field.label_tag }}</label>
+                        <div class="col-sm-10">{{ field }}</div>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

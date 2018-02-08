@@ -1,0 +1,56 @@
+{% extends 'sales/base.html' %}
+{% block extra_js%}<script src="http://malsup.github.com/jquery.form.js"></script>{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header bg-secondary text-white text-center">Add Items</div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col" id="tubcol">
+                <h4>Tubs</h4>
+                <hr>
+                <div id="tublist">
+                  {% for tub in tub_list %}
+                    <p>{{ tub }}</p>
+                    <hr>
+                  {% endfor %}
+                </div>
+                <a id="tubmodalopen" data-toggle='modal' data-target='#tubmodal' href="{% url 'sales:new_queued_tub' pk %}" class="btn btn-sm btn-success">Add Tub</a>
+              </div>
+              <div class="col">
+                <h4>Bottles</h4>
+                <hr>
+                <div id="bottlelist">
+                  {% for bottle in bottle_list %}
+                    <p>{{ bottle }}</p>
+                    <hr>
+                  {% endfor %}
+                </div>
+                <a id="bottlemodalopen" data-toggle='modal' data-target='#bottlemodal' href="{% url 'sales:new_queued_bottle' pk %}" class="btn btn-sm btn-success">Add Bottle</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <a href="{% url 'sales:customer_details' cust %}" class="mt-5 btn btn-primary">Submit Order</a>
+    </div>
+  </div>
+</div>
+<div class="modal" id="tubmodal"></div>
+<div class="modal" id="bottlemodal"></div>
+  <script>
+    $(document).ready(function(){
+      $("#tubmodalopen").click(function(){
+        $("#tubmodal").load("{% url 'sales:new_queued_tub' pk %}");
+      });
+    $("#bottlemodalopen").click(function(){
+        $("#bottlemodal").load("{% url 'sales:new_queued_bottle' pk %}");
+      });
+    });
+  </script>
+{% endblock %}

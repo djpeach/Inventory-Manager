@@ -1,0 +1,20 @@
+{% extends 'warehouse/base.html' %}
+{% block back_link %}{% url 'warehouse:index' %}{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid mt-5 text-center">
+  <div class="row">
+    <div class="col-md-4 mx-md-auto">
+      <div class="card bg-light">
+        <div class="card-body">
+          <p><a href="{% url 'warehouse:pre_ship_order' %}" class="btn btn-outline-danger my-4">SHIP ORDER</a></p>
+          <p><a href="{% url 'warehouse:pre_return_order' %}" class="btn btn-outline-danger my-4">RETURN ORDER</a></p>
+{#          <p> no function <br><a href="" class="btn btn-outline-danger my-4">CHANGE ORDER</a></p>#}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

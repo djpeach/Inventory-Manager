@@ -1,0 +1,27 @@
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:add_order' order_id customer_id %}{% endblock %}
+{% block body %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card col-sm-5 mt-5 mx-auto bg-light">
+        <div class="card-body text-center">
+          <h3>Add Bottles</h3>
+          <form action="{% url 'sales:add_bottles_to_order' customer_id order_id %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                  <div class="form-row">
+                    <label class="col-sm-3 offset-sm-1 text-right">{{ field.label_tag }}</label>
+                    <div class="col-sm-5">{{ field }}</div>
+                  </div>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+              <button type="submit" class="btn btn-success mx-auto">&larr; Add Item</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

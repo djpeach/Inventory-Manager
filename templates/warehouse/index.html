@@ -1,0 +1,19 @@
+{% extends 'warehouse/base.html' %}
+
+{% block body %}
+
+<div class="container-fluid mt-5 text-center">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card bg-light">
+        <div class="card-body">
+          <p><a href="{% url 'warehouse:tubs' %}" class="btn btn-outline-warning my-4">TUBS</a></p>
+          <p><a href="{% url 'warehouse:bottles' %}" class="btn btn-outline-primary my-4">BOTTLES</a></p>
+          <p><a href="{% url 'warehouse:orders' %}" class="btn btn-outline-danger my-4">ORDERS</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

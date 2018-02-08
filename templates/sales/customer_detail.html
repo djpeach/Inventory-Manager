@@ -1,0 +1,69 @@
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:customers' %}{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col-sm-3">
+        <div class="card">
+          <img class="card-img-top" src="" alt="No Company Image">
+          <div class="card-body">
+            <h4 class="card-title">{{ customer.company }}</h4>
+            <p>{{ customer.contact_name }}<br>
+            <span class="lead">{{ phone_number }}</span></p>
+            <p>
+              {{ customer.street_address }}<br>
+              {{ customer.city }} {{ customer.state }} {{ customer.zipcode }}<br>
+              {{ phone_number }}
+            </p>
+            <a href="{% url 'sales:edit_customer' cust %}" class="btn btn-outline-primary">Update Customer</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="card">
+          <div class="card-header">
+            <h4>All Orders for <span style="color: dodgerblue">{{ customer.company }}</span></h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-2">
+                <p><strong>Order id</strong></p>
+              </div>
+              <div class="col-4">
+                <p><strong>Ship Date</strong></p>
+              </div>
+              <div class="col-2">
+                <p><strong>Emp. Initials</strong></p>
+              </div>
+              <div class="col-2 text-right">
+                <p><strong>View Order</strong></p>
+              </div>
+            </div>
+            {% for order in customer.order_set.all %}
+            <div class="row">
+              <div class="col-2">
+                <p>{{ order.order_number }}</p>
+              </div>
+              <div class="col-4">
+                <p>{{ order.ship_date }}</p>
+              </div>
+              <div class="col-2">
+                <p>{{ order.emp_init }}</p>
+              </div>
+              <div class="col-2 text-right">
+                <a href="{% url 'sales:order_detail' customer.pk order.pk %}" class="btn btn-sm btn-primary">View Order</a>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+              <div class="col">
+                <a href="{% url 'sales:new_order' customer.pk %}" class="btn btn-outline-success btn-sm">Add Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

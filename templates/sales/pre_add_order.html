@@ -1,0 +1,28 @@
+<!-- File for creating and updating tubs in warehouse -->
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:index' %}{% endblock %}
+{% block body %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card col-sm-5 mt-5 mx-auto bg-light">
+        <div class="card-body text-center">
+          <h3>Adding Order</h3>
+          <form action="{% url 'sales:pre_add_order' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                  <div class="form-row">
+                    <label class="col-sm-3 offset-sm-1 text-right">{{ field.label_tag }}</label>
+                    <div class="col-sm-5">{{ field }}</div>
+                  </div>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+              <button class="btn btn-success mx-auto">Add Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

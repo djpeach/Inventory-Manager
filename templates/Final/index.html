@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap.css'%}" text="text/css">
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Dashboard for Inventory Management</h1>
+      <p>Made for Sutton Garten Co., for CS 230</p>
+    </div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="{% url 'sales:index' %}" class="btn btn-outline-warning">Sales</a>
+      <p>The Sales Team enters new customers and adds orders to the system.</p>
+      <p>This is intended for the front desk, salespeople, and others who need to create order tickets.</p>
+    </div>
+    <div class="col-sm-4">
+      <a href="{% url 'dashboard:index' %}" class="btn btn-outline-primary">Dashboard</a>
+      <p>The Dashboard displays information about tubs and bottles, including status and count.</p>
+      <p>This is for everyone to view the status of inventory, but specifically for management.</p>
+    </div>
+    <div class="col-sm-4">
+      <a href="{% url 'warehouse:index' %}" class="btn btn-outline-danger">Warehouse</a>
+      <p>The Warehouse is responsible for filling, updating, and shipping bottles and tubs.</p>
+      <p>This is intended for warehouse workers, but is also used by others who need to handle shipping.</p>
+    </div>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

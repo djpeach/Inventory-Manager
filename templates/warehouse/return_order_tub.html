@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+  <form action="{% url 'warehouse:return_order_tub' order_num %}" method="post" id="add_order_tub" class="form">
+  {% csrf_token %}
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Return Tub from Order</h4>
+        <button type="button" class="close text-right" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for field in form %}
+          <div class="form-group">
+            <div class="form-row">
+              <label class="col-4 text-right">{{ field.label_tag }}</label>
+              <div class="col-6 text-left">{{ field }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    <div class="modal-footer">
+      <div class="form-group">
+        <button type="submit" class="btn btn-success" id="submit">Submit</button>
+      </div>
+    </div>
+    </div>
+  </form>
+</div>
+<script>
+  var form_options = { target: '#returntubmodal', success: function(response) {} };
+  $('#return_order_tub').ajaxForm(form_options);
+  $('#submit').click(function () {
+      $('#returntubmodal').modal('hide');
+      setTimeout(function() { location.reload(false) }, 100);
+  })
+</script>

@@ -1,0 +1,190 @@
+{% extends 'sales/base.html' %}
+{% block back_link %}{% url 'sales:customer_details' cust %}{% endblock %}
+
+{% block body %}
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class="col text-center">
+        <h3>Shipper</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 text-center">
+        <h1>Sutton Garten</h1>
+        <p class="lead">Welding Supplies & Gases Since 1918</p>
+        <a href="http://www.suttongarten.com/index.html">www.suttongarten.com</a>
+        <p class="text-info">Phone 800-686-4674</p>
+      </div>
+      <div class="col-5 text-right">
+        <p>Office Copy</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 offset-1 text-left">
+        <p class="lead">Sold By:</p>
+        <strong>
+          901 NORTH SENATE AVENUE<br>
+          INDIANAPOLIS IN 46202-302<br>
+          PHONE: (317) 264-3236<br>
+          FAX: (317) 264-3233
+        </strong>
+        <hr>
+        <p class="lead">Ship To:</p>
+          {{ customer.company }}<br>
+          {{ customer.street_address }}<br>
+          {{ customer.city }} {{ customer.state }} {{ customer.zipcode }}<br>
+          {{ phone_number }}
+      </div>
+      <div class="col-6 text-right">
+        <p>Customer id: <span class="box">{{ customer.customer_id }}</span></p>
+        <p>Order id: <span class="box">{{ order.pk }}</span></p>
+        <p>Ship Date: <span class="box">{{ order.ship_date }}</span></p>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-4">
+        <div class="table">
+          <table class="table table-bordered">
+            <tr>
+              <th>Name</th>
+              <td>{{ customer.company }}</td>
+            </tr>
+            <tr>
+              <th>PO Number</th>
+              <td>{{ order.po_number }}</td>
+            </tr>
+            <tr>
+              <th>Rel Number</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{ phone_number }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="table">
+          <table class="table table-bordered">
+            <tr>
+              <th>Territory</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Salesperson</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Branch</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>{{ order.status }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="table">
+          <table class="table table-bordered">
+            <tr>
+              <th>Ship Via</th>
+              <td>{{ order.ship_method }}</td>
+            </tr>
+            <tr>
+              <th>Other Zone</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>COL/PPD</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Route</th>
+              <td>{{ ship.courier }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="table">
+          <table class="table table-bordered">
+            <tr>
+              <th>Initials</th>
+              <td>{{ order.emp_init }}</td>
+            </tr>
+            <tr>
+              <th>Order Type</th>
+              <td>{{ order.order_type }}</td>
+            </tr>
+            <tr>
+              <th>Date & Time</th>
+              <td>{{ date }}</td>
+            </tr>
+            <tr>
+              <th>Username</th>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row my-4">
+      <div class="col">
+        <table class="table table-bordered text-center">
+          <tr>
+            <th>QTY<br>ORDERED</th>
+            <th>UOM</th>
+            <th>DESCRIPTION</th>
+            <th>UNIT<br>AMOUNT</th>
+            <th>EXTENDED<br>AMOUNT</th>
+          </tr>
+          {% for tub_list in tubs.values %}
+            <tr>
+            {% for entry in tub_list %}
+              <td>
+                {{ entry }}
+              </td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+          {% for bottle_list in bottles.values %}
+            <tr>
+            {% for entry in bottle_list %}
+              <td>
+                {{ entry }}
+              </td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-9">
+        <p class="text-left">Subtotal:<span class="text-right">$ {{ subtotal }}.00</span></p>
+        <p class="text-left">Tax:<span class="text-right">$ {{ tax }}</span></p>
+        <p class="text-left">Total Sale:<span class="text-right">$ {{ total }}</span></p>
+      </div>
+    </div>
+    <hr>
+    <div class="row mb-4">
+      <div class="col-5">
+        <strong>This is to certify that the above named materials are properly classified, described, packaged, marked, and labeled, and are in proper condition for transportation according to the applicable regulations of the Department of Transportation.</strong>
+      </div>
+      <div class="col-6 offset-1">
+        <strong>EMERGENCY RESPONSE TELEPHONE NUMBER:<br>1-800-533-8253</strong>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-5">
+        <strong>Terms net 30 days, FOB shipping point. Service charge of 1.5% per month (18% per year) or a minimun of $1.00 will be added 30 days afger due date.</strong>
+      </div>
+      <div class="col-5 offset-1 text-center">
+        <strong>__________________________________________________________________<br>Received by CUSTOMER</strong>
+      </div>
+    </div>
+  </div>
+{% endblock %}
