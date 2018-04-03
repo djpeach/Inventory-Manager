@@ -11,7 +11,9 @@ Open your browser and go to http://localhost:8000/testing.
 
 ![](./imgs/testing.png)
 
-To double check that the database is restored cleanly for you, make sure to click ALL the delete buttons, and then all the add buttons.  This will prepopulate the database with example customers, orders, items, and tickets.
+On this page, you can double check that the database is restored cleanly for you, by making sure to click ALL the delete buttons, and then all the add buttons.  This will pre-populate the database with random example customers, orders, items, and tickets.
+
+***
 
 Now you can click the Home link, which will take you to the main screen of the project.
 
@@ -24,15 +26,21 @@ Here you can navigate to:
 
 ![](./imgs/Customer_profile.png)
 
+***
+
 ### Dashboard
 > Where you will be able to view the current status of the company's assets and orders
 
 ![](./imgs/Dashboard.png)
 
+***
+
 ### Warehouse
-> Where you will be able to add, update, remove, ship, and return tickets, tubs, and bottles. (tubs and bottles were chose as that is the items my employer ships out the most)
+> Where you will be able to add, update, remove, ship, and return tickets, tubs, and bottles. (I chose tubs and bottles as inventory items because my current employer at the time handled those quite a bit.)
 
 ![](./imgs/Warehouse_options.png)
+
+***
 
 *If you have any questions, please feel free to contact me at dpeachesdev@gmail.com*
 
