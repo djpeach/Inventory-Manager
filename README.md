@@ -4,9 +4,8 @@ ___
 
 > Prerequites:
 * python3
-* django
 
-Once python3 and django are installed, go ahead and clone the repo. `cd` into the directory and run `python3 manage.py runserver`. This will run the server on port 8000.  
+Once python3 is installed, go ahead and clone the repo. `cd` into the directory and run `python3 manage.py runserver`. This will run the server on port 8000.  
 
 Open your browser and go to http://localhost:8000/testing.
 
